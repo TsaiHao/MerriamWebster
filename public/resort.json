@@ -1,0 +1,571 @@
+[
+    {
+        "meta": {
+            "id": "resort:1",
+            "uuid": "c4739d1a-a3bf-4b4a-8703-0cf1e71b86fe",
+            "sort": "182502000",
+            "src": "collegiate",
+            "section": "alpha",
+            "stems": [
+                "resort",
+                "resorts"
+            ],
+            "offensive": false
+        },
+        "hom": 1,
+        "hwi": {
+            "hw": "re*sort",
+            "prs": [
+                {
+                    "mw": "ri-\u02c8z\u022frt",
+                    "sound": {
+                        "audio": "resort01",
+                        "ref": "c",
+                        "stat": "1"
+                    }
+                }
+            ]
+        },
+        "fl": "noun",
+        "def": [
+            {
+                "sseq": [
+                    [
+                        [
+                            "sense",
+                            {
+                                "sn": "1 a",
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}one that affords aid or refuge {bc}{sx|resource||} "
+                                    ],
+                                    [
+                                        "vis",
+                                        [
+                                            {
+                                                "t": "went to them as a last {wi}resort{\/wi}"
+                                            }
+                                        ]
+                                    ]
+                                ]
+                            }
+                        ],
+                        [
+                            "sense",
+                            {
+                                "sn": "b",
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}{sx|recourse||1a} "
+                                    ],
+                                    [
+                                        "vis",
+                                        [
+                                            {
+                                                "t": "have {wi}resort{\/wi} to outside help"
+                                            }
+                                        ]
+                                    ]
+                                ]
+                            }
+                        ]
+                    ],
+                    [
+                        [
+                            "sense",
+                            {
+                                "sn": "2 a",
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}frequent, habitual, or general visiting "
+                                    ],
+                                    [
+                                        "vis",
+                                        [
+                                            {
+                                                "t": "a place of popular {wi}resort{\/wi}"
+                                            }
+                                        ]
+                                    ]
+                                ]
+                            }
+                        ],
+                        [
+                            "sense",
+                            {
+                                "sn": "b",
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}persons who frequent a place {bc}{sx|throng||}"
+                                    ]
+                                ]
+                            }
+                        ],
+                        [
+                            "pseq",
+                            [
+                                [
+                                    "sense",
+                                    {
+                                        "sn": "c (1)",
+                                        "dt": [
+                                            [
+                                                "text",
+                                                "{bc}a frequently visited place {bc}{sx|haunt||}"
+                                            ]
+                                        ]
+                                    }
+                                ],
+                                [
+                                    "sense",
+                                    {
+                                        "sn": "(2)",
+                                        "dt": [
+                                            [
+                                                "text",
+                                                "{bc}a place designed to provide recreation, entertainment, and accommodation especially to vacationers {bc}a community or establishment whose purpose or main industry is catering to vacationers"
+                                            ]
+                                        ]
+                                    }
+                                ]
+                            ]
+                        ]
+                    ]
+                ]
+            }
+        ],
+        "syns": [
+            {
+                "pl": "synonyms",
+                "pt": [
+                    [
+                        "text",
+                        "{sc}resource{\/sc} {sc}resort{\/sc} {sc}expedient{\/sc} {sc}shift{\/sc} {sc}makeshift{\/sc} {sc}stopgap{\/sc} mean something one turns to in the absence of the usual means or source of supply. {sc}resource{\/sc} and {sc}resort{\/sc} apply to anything one falls back upon. "
+                    ],
+                    [
+                        "vis",
+                        [
+                            {
+                                "t": "exhausted all of their {it}resources{\/it}"
+                            },
+                            {
+                                "t": "a last {it}resort{\/it}"
+                            }
+                        ]
+                    ],
+                    [
+                        "text",
+                        " {sc}expedient{\/sc} may apply to any device or contrivance used when the usual one is not at hand or not possible. "
+                    ],
+                    [
+                        "vis",
+                        [
+                            {
+                                "t": "a flimsy {it}expedient{\/it}"
+                            }
+                        ]
+                    ],
+                    [
+                        "text",
+                        " {sc}shift{\/sc} implies a tentative or temporary imperfect expedient. "
+                    ],
+                    [
+                        "vis",
+                        [
+                            {
+                                "t": "desperate {it}shifts{\/it} to stave off foreclosure"
+                            }
+                        ]
+                    ],
+                    [
+                        "text",
+                        " {sc}makeshift{\/sc} implies an inferior expedient adopted because of urgent need or allowed through indifference. "
+                    ],
+                    [
+                        "vis",
+                        [
+                            {
+                                "t": "old equipment employed as a {it}makeshift{\/it}"
+                            }
+                        ]
+                    ],
+                    [
+                        "text",
+                        " {sc}stopgap{\/sc} applies to something used temporarily as an emergency measure. "
+                    ],
+                    [
+                        "vis",
+                        [
+                            {
+                                "t": "a new law intended only as a {it}stopgap{\/it}"
+                            }
+                        ]
+                    ]
+                ]
+            }
+        ],
+        "et": [
+            [
+                "text",
+                "Middle English, return, source of aid, from Anglo-French, from {it}resortir{\/it} to rebound, resort, from {it}re-{\/it} + Old French {it}sortir{\/it} to go out, leave"
+            ]
+        ],
+        "date": "14th century{ds||1|a|}",
+        "shortdef": [
+            "one that affords aid or refuge : resource",
+            "recourse",
+            "frequent, habitual, or general visiting"
+        ]
+    },
+    {
+        "meta": {
+            "id": "resort:2",
+            "uuid": "b76f2f5e-bbbf-4889-8097-8d92623c7f93",
+            "sort": "182503000",
+            "src": "collegiate",
+            "section": "alpha",
+            "stems": [
+                "resort",
+                "resorted",
+                "resorting",
+                "resorts"
+            ],
+            "offensive": false
+        },
+        "hom": 2,
+        "hwi": {
+            "hw": "resort"
+        },
+        "fl": "verb",
+        "ins": [
+            {
+                "if": "re*sort*ed"
+            },
+            {
+                "if": "re*sort*ing"
+            },
+            {
+                "if": "re*sorts"
+            }
+        ],
+        "def": [
+            {
+                "vd": "intransitive verb",
+                "sseq": [
+                    [
+                        [
+                            "sense",
+                            {
+                                "sn": "1",
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}to go especially frequently or habitually {bc}{sx|repair||}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    ],
+                    [
+                        [
+                            "sense",
+                            {
+                                "sn": "2",
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}to have recourse "
+                                    ],
+                                    [
+                                        "vis",
+                                        [
+                                            {
+                                                "t": "{wi}resort{\/wi} to force"
+                                            }
+                                        ]
+                                    ]
+                                ]
+                            }
+                        ]
+                    ]
+                ]
+            }
+        ],
+        "date": "15th century{ds||1||}",
+        "shortdef": [
+            "to go especially frequently or habitually : repair",
+            "to have recourse"
+        ]
+    },
+    {
+        "meta": {
+            "id": "re-sort",
+            "uuid": "94b00676-a759-4eea-8607-538c80d7e650",
+            "sort": "182504000",
+            "src": "collegiate",
+            "section": "alpha",
+            "stems": [
+                "re-sort",
+                "re-sorted",
+                "re-sorting",
+                "re-sorts"
+            ],
+            "offensive": false
+        },
+        "hwi": {
+            "hw": "re-sort",
+            "prs": [
+                {
+                    "mw": "(\u02cc)r\u0113-\u02c8s\u022frt",
+                    "sound": {
+                        "audio": "resort02",
+                        "ref": "c",
+                        "stat": "1"
+                    }
+                }
+            ]
+        },
+        "fl": "verb",
+        "ins": [
+            {
+                "if": "re-sort*ed"
+            },
+            {
+                "if": "re-sort*ing"
+            },
+            {
+                "if": "re-sorts"
+            }
+        ],
+        "def": [
+            {
+                "vd": "transitive verb",
+                "sseq": [
+                    [
+                        [
+                            "sense",
+                            {
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}to sort again"
+                                    ]
+                                ]
+                            }
+                        ]
+                    ]
+                ]
+            }
+        ],
+        "date": "1889",
+        "shortdef": [
+            "to sort again"
+        ]
+    },
+    {
+        "meta": {
+            "id": "resort to",
+            "uuid": "83a805a2-54d1-4216-a11c-617d4e1b5d0a",
+            "sort": "3016110000",
+            "src": "ld",
+            "section": "idioms",
+            "stems": [
+                "resort to",
+                "resorted to",
+                "resorting to",
+                "resorts to"
+            ],
+            "offensive": false
+        },
+        "hwi": {
+            "hw": "resort to"
+        },
+        "fl": "phrasal verb",
+        "ins": [
+            {
+                "if": "re*sort*ed to"
+            },
+            {
+                "if": "re*sort*ing to"
+            },
+            {
+                "if": "resorts to"
+            }
+        ],
+        "def": [
+            {
+                "sseq": [
+                    [
+                        [
+                            "sense",
+                            {
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}to do or use (something) especially because no other choices are possible "
+                                    ],
+                                    [
+                                        "vis",
+                                        [
+                                            {
+                                                "t": "He had to {it}resort to{\/it} asking his parents for money."
+                                            }
+                                        ]
+                                    ]
+                                ]
+                            }
+                        ]
+                    ]
+                ]
+            }
+        ],
+        "shortdef": [
+            "to do or use (something) especially because no other choices are possible"
+        ]
+    },
+    {
+        "meta": {
+            "id": "last resort",
+            "uuid": "2c9890cf-a99f-421f-b6f1-94f802cb3ffb",
+            "sort": "3010726000",
+            "src": "ld",
+            "section": "idioms",
+            "stems": [
+                "last resort"
+            ],
+            "offensive": false
+        },
+        "hwi": {
+            "hw": "last resort"
+        },
+        "fl": "noun",
+        "def": [
+            {
+                "sseq": [
+                    [
+                        [
+                            "sense",
+                            {
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}something done only if nothing else works "
+                                    ],
+                                    [
+                                        "vis",
+                                        [
+                                            {
+                                                "t": "Asking for more time should be our {it}last resort{\/it}."
+                                            }
+                                        ]
+                                    ]
+                                ]
+                            }
+                        ]
+                    ]
+                ]
+            }
+        ],
+        "shortdef": [
+            "something done only if nothing else works"
+        ]
+    },
+    {
+        "meta": {
+            "id": "weapon of last resort",
+            "uuid": "1dbb15b2-0eb9-4ac9-afce-86d9b649c57a",
+            "sort": "3022271000",
+            "src": "ld",
+            "section": "idioms",
+            "stems": [
+                "weapon of last resort"
+            ],
+            "offensive": false
+        },
+        "hwi": {
+            "hw": "weapon of last resort"
+        },
+        "fl": "noun phrase",
+        "def": [
+            {
+                "sseq": [
+                    [
+                        [
+                            "sense",
+                            {
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}a weapon that is only used if its use cannot be avoided "
+                                    ],
+                                    [
+                                        "vis",
+                                        [
+                                            {
+                                                "t": "see pesticides as the {it}weapon of last resort{\/it} against garden pests"
+                                            }
+                                        ]
+                                    ]
+                                ]
+                            }
+                        ]
+                    ]
+                ]
+            }
+        ],
+        "shortdef": [
+            "a weapon that is only used if its use cannot be avoided"
+        ]
+    },
+    {
+        "meta": {
+            "id": "without resort to",
+            "uuid": "23ce7f7f-3496-4228-a131-3b687da5e01e",
+            "sort": "3022834000",
+            "src": "ld",
+            "section": "idioms",
+            "stems": [
+                "without resort to"
+            ],
+            "offensive": false
+        },
+        "hwi": {
+            "hw": "without resort to"
+        },
+        "fl": "idiom",
+        "def": [
+            {
+                "sseq": [
+                    [
+                        [
+                            "sense",
+                            {
+                                "dt": [
+                                    [
+                                        "text",
+                                        "{bc}without doing (something) or using (something) "
+                                    ],
+                                    [
+                                        "vis",
+                                        [
+                                            {
+                                                "t": "The police hope to end the standoff {it}without resort to{\/it} force."
+                                            }
+                                        ]
+                                    ]
+                                ]
+                            }
+                        ]
+                    ]
+                ]
+            }
+        ],
+        "shortdef": [
+            "without doing (something) or using (something)"
+        ]
+    }
+]
