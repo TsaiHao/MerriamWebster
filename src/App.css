@@ -1,6 +1,5 @@
 p {
     margin: 0;
-    font-size: 18px;
 }
 
 .Entry {
@@ -25,29 +24,11 @@ p {
 }
 
 .SenseEntry {
-    display: flex;
-    align-items: flex-end;
     margin-bottom: 0.5rem;
     padding-left: 0.5rem;
 }
 
-.SenseLabel {
-    margin-bottom: 0em;
-    font-weight: bold;
-}
-
-.SenseList {
-    display: block;
-}
-
-.SenseIndex {
-    margin-right: 0;
-    font-family: 'Open Sans,Helvetica,Arial,sans-serif';
-    font-size: 20px;
-}
-
 .SenseGroup {
-    display: flex;
     padding-top: 0.5rem;
 }
 
@@ -59,6 +40,9 @@ p {
     text-decoration: underline;
 }
 
+.DefinitionText {
+    font-size: 20px;
+}
 span.SmallCapitals {
     font-variant: small-caps;
 }

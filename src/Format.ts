@@ -23,7 +23,7 @@ function format(text: string): string {
         // 2.29.1
         "{b}": "<b>",
         "{\\/b}": "</b>",
-        "{bc}": "<b>:</b> ",
+        "{bc}": "<b></b> ",
         "{inf}": "<sub>",
         "{\\/inf}": "</sub>",
         "{sup}": "<sup>",

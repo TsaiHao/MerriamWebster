@@ -63,10 +63,7 @@ class SenseGroup {
 
 function SenseEntry({ sense }: { sense: Sense }) {
   return (
-    <div className="SenseEntry">
-      {sense.title !== "" && <div className="SenseLabel">{sense.title}</div>}
-      <p className="DefinitionText" dangerouslySetInnerHTML={{ __html: Format.display(sense.text) }}></p>
-    </div>
+    <li className="DefinitionText" dangerouslySetInnerHTML={{ __html: Format.display(sense.text) }}></li>
   );
 }
 
@@ -74,15 +71,11 @@ function SenseGroupComp({ sg }: { sg: Word.SenseSequenceItem[] }) {
   const group = new SenseGroup(sg);
 
   return ( 
-  <div className="SenseGroup">
-    {group.index !== "" && <span className="SenseIndex">{group.index}</span>}
-    <div className="SenseList">
-      {group.senses.map((senseItem) => (
-        <SenseEntry sense={senseItem} /> 
-      ))
+    <ul>
+      { 
+        group.senses.map((senseItem) => <SenseEntry sense={senseItem} /> )
       }
-    </div>
-  </div>
+    </ul>
   );
 }
 
@@ -90,9 +83,7 @@ function Definition({ definition }: { definition: Word.Definition }) {
   return (
     <div className="Definition">
       {definition.sseq.map((sg) => (
-        <div className="SenseSequence">
-          <SenseGroupComp sg={sg as Word.SenseSequenceItem[]} />
-        </div>
+        <SenseGroupComp sg={sg as Word.SenseSequenceItem[]} />
       ))}
     </div>
   );
@@ -124,9 +115,7 @@ function App({ word, wordEntries }: { word: string, wordEntries: Word.Entry[] })
   return (
     <div className="App">
       <h1>{word}</h1>
-      {wordEntries.map((entry) => (
-        <Entry entry={entry} />
-      ))}
+      { wordEntries.map((entry) => <Entry entry={entry} /> ) }
     </div>
   );
 }
