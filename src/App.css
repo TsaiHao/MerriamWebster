@@ -1,23 +1,62 @@
+p {
+    margin: 0;
+    font-size: 18px;
+}
+
 .Entry {
     margin: 1rem;
     padding: 1rem;
-    border: 1px solid #000;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .WordInformation {
     display: flex;
     align-items: flex-end;
+    padding-bottom: 0.4rem;
 }
 
 .HeadWord {
-    margin-bottom: 0;
+    margin: 0.3rem 0 0rem 0;
 }
 
 .FunctionalLabel {
     margin-bottom: 0;
     margin-left: 1rem;
     font-weight: bold;
+}
+
+.SenseEntry {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.SenseLabel {
+    margin-bottom: 0em;
+    font-weight: bold;
+}
+
+.SenseList {
+    display: block;
+}
+
+.SenseIndex {
+    margin-right: 0;
+    font-family: 'Open Sans,Helvetica,Arial,sans-serif';
+    font-size: 20px;
+}
+
+.SenseGroup {
+    display: flex;
+    padding-top: 0.5rem;
+}
+
+.Link {
+    color: blue;
+    text-decoration: none;
+}
+.Link:hover {
+    text-decoration: underline;
 }
 
 span.SmallCapitals {

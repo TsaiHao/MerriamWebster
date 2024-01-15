@@ -4,49 +4,96 @@ import './App.css';
 import * as Word from "./Word"
 import * as Format from "./Format"
 
-function DefinitionText({ dt }: { dt: Word.DefinitionText }) {
-  if (dt[0] === "text") {
-    return (
-      <p className="DefinitionText" dangerouslySetInnerHTML={{ __html: Format.display(dt[1]) }}></p>
-    );
-  }
+class Sense {
+  title: string = "";
+  text: string = "";
+  vis: object[] = [];
+  constructor(public sense: Word.SenseEntry) {
+    if (sense.sn) {
+      const sns = sense.sn.split(" ");
+      if (sns.length > 1) {
+        this.title = sns[1];
+      }
+    }
+    this.text = sense.dt.filter((dt) => {
+      return dt[0] === "text";
+    }).map((dt) => {
+      return dt[1] as string;
+    }).join("; ");
 
-  console.log("unknown dt type " + dt[0]);
-  return null;
+    this.vis = sense.dt.filter((dt) => {
+      return dt[0] === "vis";
+    }).map((dt) => {
+      return dt[1][0] as object;
+    });
+  }
 }
 
-function SenseEntry({ sense }: { sense: Word.SenseEntry }) {
+class SenseGroup {
+  senses: Sense[] = [];
+  index: string = "";
+
+  constructor(public sg: Word.SenseSequenceItem[]) {
+    for (const [idx, item] of sg.entries()) {
+      if (item[0] === "sense") {
+        const entry = item[1] as Word.SenseEntry;
+        this.makeSense(idx, entry);
+      }
+    }
+  }
+
+  makeSense(idx: number, entry: Word.SenseEntry) {
+    const sense = new Sense(entry);
+    if (entry.sn) {
+      const sns = entry.sn.split(" ");
+      if (sns.length > 1) {
+        sense.title = sns[1];
+        this.index = sns[0];
+      } else {
+        if (idx > 0) {
+          sense.title = sns[0];
+        } else {
+          this.index = sns[0];
+        }
+      }
+    }
+    this.senses.push(sense);
+  }
+}
+
+function SenseEntry({ sense }: { sense: Sense }) {
   return (
     <div className="SenseEntry">
-      { sense.sn && <p className="SenseNumber">{sense.sn}</p> }
-      { sense.dt.map((dt) => (
-        <DefinitionText dt={dt} />
-      )) }
+      {sense.title !== "" && <div className="SenseLabel">{sense.title}</div>}
+      <p className="DefinitionText" dangerouslySetInnerHTML={{ __html: Format.display(sense.text) }}></p>
     </div>
   );
 }
 
-function SenseSequence({ senseGroup }: { senseGroup: Word.SenseSequenceItem }) {
-  if (senseGroup[0] === "sense") {
-    return (
-      <SenseEntry sense={senseGroup[1]} />
-    );
-  }
+function SenseGroupComp({ sg }: { sg: Word.SenseSequenceItem[] }) {
+  const group = new SenseGroup(sg);
 
-  console.log("unknown sense group type " + senseGroup[0]);
-  return null;
+  return ( 
+  <div className="SenseGroup">
+    {group.index !== "" && <span className="SenseIndex">{group.index}</span>}
+    <div className="SenseList">
+      {group.senses.map((senseItem) => (
+        <SenseEntry sense={senseItem} /> 
+      ))
+      }
+    </div>
+  </div>
+  );
 }
 
 function Definition({ definition }: { definition: Word.Definition }) {
   return (
     <div className="Definition">
-      { definition.sseq.map((sseq) => (
+      {definition.sseq.map((sg) => (
         <div className="SenseSequence">
-          { sseq.map((senseGroup) => (
-            <SenseSequence senseGroup={senseGroup}/>
-          ))}
+          <SenseGroupComp sg={sg as Word.SenseSequenceItem[]} />
         </div>
-      )) }
+      ))}
     </div>
   );
 }
@@ -54,9 +101,9 @@ function Definition({ definition }: { definition: Word.Definition }) {
 function DefinitionList({ def }: { def: Word.Definition[] }) {
   return (
     <div className="DefinitionList">
-      { def.map((definition) => (
-        <Definition definition={definition} />
-      )) }
+      {def.map((definition) => (
+        <Definition definition={definition}/>
+      ))}
     </div>
   );
 }
@@ -66,20 +113,20 @@ function Entry({ entry }: { entry: Word.Entry }) {
     <div className="Entry">
       <div className="WordInformation">
         <h2 className="HeadWord">{entry.hwi.hw}</h2>
-        <p className="FunctionalLabel">[{entry.fl}]</p>
+        <span className="FunctionalLabel">[{entry.fl}]</span>
       </div>
       <DefinitionList def={entry.def} />
     </div>
   );
 }
 
-function App({ word, wordEntries }: {word: string, wordEntries: Word.Entry[]}) {
+function App({ word, wordEntries }: { word: string, wordEntries: Word.Entry[] }) {
   return (
     <div className="App">
       <h1>{word}</h1>
-      { wordEntries.map((entry) => (
-        <Entry entry={entry}/>
-      )) }
+      {wordEntries.map((entry) => (
+        <Entry entry={entry} />
+      ))}
     </div>
   );
 }

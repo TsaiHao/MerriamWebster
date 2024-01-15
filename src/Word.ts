@@ -17,7 +17,7 @@ interface SenseEntry {
   dt: DefinitionText[];
 }
 
-type SenseItem = ["sense", SenseEntry] | ["pseq", SenseItem[]];
+type SenseItem = (string | Object)[];
 type SenseSequenceItem =  SenseItem;
 
 interface Definition {
