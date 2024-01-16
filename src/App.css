@@ -1,48 +1,26 @@
-p {
-    margin: 0;
+::-webkit-scrollbar {
+    width: 0.5em;
 }
 
-.Entry {
-    margin: 1rem;
-    padding: 1rem;
-}
-
-.WordInformation {
+.App {
     display: flex;
-    align-items: flex-end;
-    padding-bottom: 0.4rem;
+    height: 100vh;
 }
 
-.HeadWord {
-    margin: 0.3rem 0 0rem 0;
+.WordList {
+    list-style-type: none;
+    padding-right: 2em;
+    margin-top: 1rem;
+    overflow-y: auto;
 }
 
-.FunctionalLabel {
-    margin-bottom: 0;
-    margin-left: 1rem;
+.WordList li {
     font-weight: bold;
+    font-size: 1.4rem;
+    padding-bottom: 1rem;
 }
 
-.SenseEntry {
-    margin-bottom: 0.5rem;
-    padding-left: 0.5rem;
-}
-
-.SenseGroup {
-    padding-top: 0.5rem;
-}
-
-.Link {
-    color: blue;
-    text-decoration: none;
-}
-.Link:hover {
-    text-decoration: underline;
-}
-
-.DefinitionText {
-    font-size: 20px;
-}
-span.SmallCapitals {
-    font-variant: small-caps;
+.WordList li:hover {
+    background-color: #eee;
+    cursor: pointer;
 }

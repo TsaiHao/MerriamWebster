@@ -1,123 +1,63 @@
-import React from 'react';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-import * as Word from "./Word"
-import * as Format from "./Format"
+import WordCard from "./Card";
+import * as Word from "./Word";
+import * as Resource from "./Resource"
 
-class Sense {
-  title: string = "";
-  text: string = "";
-  vis: object[] = [];
-  constructor(public sense: Word.SenseEntry) {
-    if (sense.sn) {
-      const sns = sense.sn.split(" ");
-      if (sns.length > 1) {
-        this.title = sns[1];
-      }
-    }
-    this.text = sense.dt.filter((dt) => {
-      return dt[0] === "text";
-    }).map((dt) => {
-      return dt[1] as string;
-    }).join("; ");
+import "./App.css"
 
-    this.vis = sense.dt.filter((dt) => {
-      return dt[0] === "vis";
-    }).map((dt) => {
-      return dt[1][0] as object;
-    });
-  }
+function WordListItem({word, setFocus}: {word: string, setFocus: (word: string) => void}) {
+    return (
+        <li className="WordListItem" onClick={ () => setFocus(word) }>
+            {word}
+        </li>
+    )
 }
 
-class SenseGroup {
-  senses: Sense[] = [];
-  index: string = "";
+function WordList({setFocus}: {setFocus: (word: string) => void}) {
+    const [isLoading, setIsLoading] = useState<Boolean>(true);
+    const [words, setWords] = useState<string[]>([]);
+    const [error, setError] = useState<Error | null>(null);
 
-  constructor(public sg: Word.SenseSequenceItem[]) {
-    for (const [idx, item] of sg.entries()) {
-      if (item[0] === "sense") {
-        const entry = item[1] as Word.SenseEntry;
-        this.makeSense(idx, entry);
-      }
-    }
-  }
-
-  makeSense(idx: number, entry: Word.SenseEntry) {
-    const sense = new Sense(entry);
-    if (entry.sn) {
-      const sns = entry.sn.split(" ");
-      if (sns.length > 1) {
-        sense.title = sns[1];
-        this.index = sns[0];
-      } else {
-        if (idx > 0) {
-          sense.title = sns[0];
-        } else {
-          this.index = sns[0];
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await Resource.requestWordList();
+                response.sort();
+                setWords(response);
+            } catch (error) {
+                setError(error instanceof Error ? error : new Error("Unknown error"));
+            } finally {
+                setIsLoading(false);
+            }
         }
-      }
-    }
-    this.senses.push(sense);
-  }
+        fetchData();
+    }, []);
+
+    return (
+        <>
+            { isLoading ? (
+                <p>Loading word list</p>
+            ) : error ? (
+                <p>{error.message}</p>
+            ) : (
+                <ul className="WordList">
+                    {words.map((word) => WordListItem({ word, setFocus }))}
+                </ul>
+            ) }
+        </>
+    )
 }
 
-function SenseEntry({ sense }: { sense: Sense }) {
-  return (
-    <li className="DefinitionText" dangerouslySetInnerHTML={{ __html: Format.display(sense.text) }}></li>
-  );
-}
+function App() {
+    const [focusWord, setFocusWord] = useState<string>("");
 
-function SenseGroupComp({ sg }: { sg: Word.SenseSequenceItem[] }) {
-  const group = new SenseGroup(sg);
-
-  return ( 
-    <ul>
-      { 
-        group.senses.map((senseItem) => <SenseEntry sense={senseItem} /> )
-      }
-    </ul>
-  );
-}
-
-function Definition({ definition }: { definition: Word.Definition }) {
-  return (
-    <div className="Definition">
-      {definition.sseq.map((sg) => (
-        <SenseGroupComp sg={sg as Word.SenseSequenceItem[]} />
-      ))}
-    </div>
-  );
-}
-
-function DefinitionList({ def }: { def: Word.Definition[] }) {
-  return (
-    <div className="DefinitionList">
-      {def.map((definition) => (
-        <Definition definition={definition}/>
-      ))}
-    </div>
-  );
-}
-
-function Entry({ entry }: { entry: Word.Entry }) {
-  return (
-    <div className="Entry">
-      <div className="WordInformation">
-        <h2 className="HeadWord">{entry.hwi.hw}</h2>
-        <span className="FunctionalLabel">[{entry.fl}]</span>
-      </div>
-      <DefinitionList def={entry.def} />
-    </div>
-  );
-}
-
-function App({ word, wordEntries }: { word: string, wordEntries: Word.Entry[] }) {
-  return (
-    <div className="App">
-      <h1>{word}</h1>
-      { wordEntries.map((entry) => <Entry entry={entry} /> ) }
-    </div>
-  );
+    return (
+        <div className="App">
+            <WordList setFocus={setFocusWord} />
+            <WordCard word={focusWord} />
+        </div>
+    )
 }
 
 export default App;

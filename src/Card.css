@@ -1,0 +1,52 @@
+p {
+    margin: 0;
+}
+
+.WordCard {
+    border-left-style: solid;
+}
+
+.Entry {
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.WordInformation {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 0.4rem;
+}
+
+.HeadWord {
+    margin: 0.3rem 0 0rem 0;
+}
+
+.FunctionalLabel {
+    margin-bottom: 0;
+    margin-left: 1rem;
+    font-weight: bold;
+}
+
+.SenseEntry {
+    margin-bottom: 0.5rem;
+    padding-left: 0.5rem;
+}
+
+.SenseGroup {
+    padding-top: 0.5rem;
+}
+
+.Link {
+    color: blue;
+    text-decoration: none;
+}
+.Link:hover {
+    text-decoration: underline;
+}
+
+.DefinitionText {
+    font-size: 20px;
+}
+span.SmallCapitals {
+    font-variant: small-caps;
+}

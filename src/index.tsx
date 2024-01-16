@@ -1,8 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 
 import * as Word from "./Word"
 
@@ -16,7 +14,7 @@ fetch("./resort.json").then((response) => {
   const wordEntries: Word.Entry[] = data;
   root.render(
     <React.StrictMode>
-      <App word="resort" wordEntries={wordEntries} />
+      <App />
     </React.StrictMode>
   );
 });
