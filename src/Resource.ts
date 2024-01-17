@@ -27,7 +27,19 @@ async function requestWord(word: string): Promise<DatabaseItem> {
     });
 }
 
+async function removeWord(word: string): Promise<void> {
+    fetch(`http://localhost:5678/word/${word}`, {
+        method: "DELETE"
+    }).then((response) => {
+        if (response.status !== 200) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        return response.json();
+    });
+}
+
 export {
     requestWordList,
     requestWord,
+    removeWord,
 }

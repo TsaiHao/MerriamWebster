@@ -8,7 +8,7 @@ import * as Resource from "./Resource"
 class Sense {
   title: string = "";
   text: string = "";
-  vis: object[] = [];
+  vis: Word.Visual[] = [];
   constructor(public sense: Word.SenseEntry) {
     if (sense.sn) {
       const sns = sense.sn.split(" ");
@@ -23,10 +23,11 @@ class Sense {
     }).join("; ");
 
     this.vis = sense.dt.filter((dt) => {
-      return dt[0] === "vis";
+      return dt[0] === "vis" && dt[1].length > 0 && dt[1][0].t;
     }).map((dt) => {
-      return dt[1][0] as object;
+      return dt[1][0] as Word.Visual;
     });
+    console.log(this.vis);
   }
 }
 
@@ -64,7 +65,16 @@ class SenseGroup {
 
 function SenseEntry({ sense }: { sense: Sense }) {
   return (
+    <>
     <li className="DefinitionText" dangerouslySetInnerHTML={{ __html: Format.display(sense.text) }}></li>
+    {
+      sense.vis.length > 0 && (
+        <blockquote>
+          <p className="ExampleText" dangerouslySetInnerHTML={{ __html: Format.display(sense.vis[0].t)}}></p>
+        </blockquote>
+      )
+    }
+    </>
   );
 }
 
@@ -72,9 +82,9 @@ function SenseGroupComp({ sg }: { sg: Word.SenseSequenceItem[] }) {
   const group = new SenseGroup(sg);
 
   return ( 
-    <ul>
+    <ul key={group.index.toString()}>
       { 
-        group.senses.map((senseItem) => <SenseEntry sense={senseItem} /> )
+        group.senses.map((senseItem) => <SenseEntry sense={senseItem} key={senseItem.title} /> )
       }
     </ul>
   );
@@ -83,8 +93,8 @@ function SenseGroupComp({ sg }: { sg: Word.SenseSequenceItem[] }) {
 function Definition({ definition }: { definition: Word.Definition }) {
   return (
     <div className="Definition">
-      {definition.sseq.map((sg) => (
-        <SenseGroupComp sg={sg as Word.SenseSequenceItem[]} />
+      {definition.sseq.map((sg, index) => (
+        <SenseGroupComp sg={sg as Word.SenseSequenceItem[]} key={index.toString()} /> 
       ))}
     </div>
   );
@@ -93,8 +103,8 @@ function Definition({ definition }: { definition: Word.Definition }) {
 function DefinitionList({ def }: { def: Word.Definition[] }) {
   return (
     <div className="DefinitionList">
-      {def.map((definition) => (
-        <Definition definition={definition}/>
+      {def.map((definition, index) => (
+        <Definition definition={definition} key={index.toString()}/>
       ))}
     </div>
   );
@@ -145,8 +155,8 @@ function WordCard({ word }: { word: string }) {
         <p>{error.message}</p>
       ) : (
         <div className="WordEntries">
-          {wordEntries.map((entry: Word.Entry) => (
-            <Entry entry={entry} />
+          {wordEntries.map((entry: Word.Entry, index) => (
+            <Entry entry={entry} key={index.toString()}/>
           ))}
         </div>
       )}

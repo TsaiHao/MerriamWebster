@@ -44,8 +44,8 @@ function format(text: string): string {
         "{\\/phrase}": "</span>",
         "{qword}": "<i>",
         "{\\/qword}": "</i>",
-        "{wi}": "<i>",
-        "{\\/wi}": "</i>",
+        "{wi}": "<i><b>",
+        "{/wi}": "</i></b>",
 
         // 2.29.3
         "{dx}": "<br/><span class=\"Dx\">->",

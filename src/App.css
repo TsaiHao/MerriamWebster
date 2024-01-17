@@ -7,9 +7,15 @@
     height: 100vh;
 }
 
+.WordDetails {
+    border-left-style: dashed;
+    border-left-width: 1px;
+}
+
 .WordList {
     list-style-type: none;
     padding-right: 2em;
+    padding-left: 0;
     margin-top: 1rem;
     overflow-y: auto;
 }
@@ -20,7 +26,20 @@
     padding-bottom: 1rem;
 }
 
+.OperationContainer {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
 .WordList li:hover {
     background-color: #eee;
     cursor: pointer;
+}
+
+.WordListItem {
+    background-color: white;
+}
+
+.WordListItem.WordListItemFocused {
+    background-color: #eee;
 }
