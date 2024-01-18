@@ -38,7 +38,7 @@ function WordList({focusWord, setFocus, wordList, setWordList}: {
             }
         }
         fetchData();
-    }, []);
+    }, [setWordList, setFocus]);
 
     return (
         <>

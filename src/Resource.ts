@@ -1,5 +1,5 @@
 async function requestWordList(): Promise<string[]> {
-    return fetch("http://localhost:5678/list", {
+    return fetch("/api/list", {
         method: "GET",
     }).then((response) => {
         return response.json();
@@ -15,7 +15,7 @@ interface DatabaseItem {
 }
 
 async function requestWord(word: string): Promise<DatabaseItem> {
-    return fetch(`http://localhost:5678/word/${word}`, {
+    return fetch(`/api/word/${word}`, {
         method: "GET",
     }).then((response) => {
         if (response.status !== 200) {
@@ -28,7 +28,7 @@ async function requestWord(word: string): Promise<DatabaseItem> {
 }
 
 async function removeWord(word: string): Promise<void> {
-    fetch(`http://localhost:5678/word/${word}`, {
+    fetch(`/api/word/${word}`, {
         method: "DELETE"
     }).then((response) => {
         if (response.status !== 200) {
