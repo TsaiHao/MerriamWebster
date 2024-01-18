@@ -48,4 +48,4 @@ jobs:
 
       - name: Deploy to server
         run: |
-          scp -r build/ ${{ secrets.SERVER_USER }} @${{ secrets.SERVER_IP }}:/var/www/WordVault
+          scp -r build/ ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }}:/var/www/WordVault
